@@ -1,10 +1,17 @@
 # `ffs`
 
+## Create new project
+
 - `dfx new ffs`
 - `cd ffs`
 
+## Deploy the project
+
 - `dfx build` will not work at this point: `Error: Cannot find canister id. Please issue 'dfx canister create ffs_backend'.`
 - `dfx deploy` will work: `dfx deploy` is just a shorthand for `dfx canister crate`, `dfx build`, `dfx canister install`.
+
+## Install shadcn
+
 - Following shadcn/Vite - Instaling Tailwind in src/frontend
 
 ```
@@ -13,6 +20,49 @@ npx tailwindcss init
 ```
 
 package.json is updated: tailwindcss, postcss, autoprefixer. We have a new `tailwind.config.js`
+
+- We tweak tsconfig.json
+
+### Summary for Documentation
+
+Here's a concise summary for your documentation explaining the additions to the `tsconfig.json` file and their purposes:
+
+---
+
+### **Additions to `tsconfig.json`**
+
+1. **`files` and `references`**:
+
+   - **`files`:** An empty array indicates that no specific files are included by default. It's a placeholder and can be used to explicitly include TypeScript files in larger projects.
+   - **`references`:** This section is typically used in **project references**, allowing you to split your project into multiple configurations. This setup points to `tsconfig.app.json` and `tsconfig.node.json`, which would allow separate configurations for your frontend (app) and server-side (Node.js) environments if needed. However, if you don't have these files yet, they are placeholders and optional unless you need more modular or environment-specific configurations.
+
+2. **`baseUrl` and `paths`**:
+   - **`baseUrl`:** Sets the base directory for module resolution. By setting this to `"."` (the root of your project), you can use simplified import paths.
+   - **`paths`:** This introduces an alias system that allows you to import files using `@/` instead of lengthy relative paths. For example, instead of writing `../../components/button`, you can use `@/components/button`. This makes the code cleaner and easier to maintain.
+
+---
+
+### Do You Need `tsconfig.app.json` and `tsconfig.node.json`?
+
+Since you don't have `tsconfig.app.json` and `tsconfig.node.json` files in your project, here's why:
+
+1. **Optional for Most Projects**: These files are not mandatory unless your project requires multiple environments (e.g., separating frontend and backend configurations). Many projects can work just fine with a single `tsconfig.json` unless you have specific needs for isolating TypeScript configurations (e.g., one for the browser and one for Node.js).
+
+2. **When You Might Need Them**:
+
+   - **`tsconfig.app.json`:** You could create this if you want a separate TypeScript configuration for the frontend app. For example, if you have different settings for how TypeScript should behave in the frontend vs. other parts of the project.
+   - **`tsconfig.node.json`:** This is useful if you're working on server-side code (Node.js) in the same project. It would let you use configurations like different module settings for backend Node.js code.
+
+   If your project is purely frontend (React with Vite) and doesn’t involve server-side code in Node.js, you likely don’t need these files.
+
+### **Conclusion**
+
+- The `references` section is **optional** in your case. If you are not managing multiple environments, you can safely remove or ignore these.
+- The important additions for you are **`baseUrl`** and **`paths`**, which provide path aliasing for simpler imports, making the project easier to scale and maintain.
+
+If at some point you introduce server-side code or need more advanced configurations, you can consider adding `tsconfig.app.json` or `tsconfig.node.json` files.
+
+# Notes
 
 The 'tree' after the first `dfx deploy`, the node_modules and target dirs are not listed.
 
