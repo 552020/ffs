@@ -5,8 +5,16 @@
 
 - `dfx build` will not work at this point: `Error: Cannot find canister id. Please issue 'dfx canister create ffs_backend'.`
 - `dfx deploy` will work: `dfx deploy` is just a shorthand for `dfx canister crate`, `dfx build`, `dfx canister install`.
+- Following shadcn/Vite - Instaling Tailwind in src/frontend
 
-At this point we have the follwing 'tree', the node_modules and target dirs are not listed.
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+package.json is updated: tailwindcss, postcss, autoprefixer. We have a new `tailwind.config.js`
+
+The 'tree' after the first `dfx deploy`, the node_modules and target dirs are not listed.
 
 .
 ├── Cargo.lock
