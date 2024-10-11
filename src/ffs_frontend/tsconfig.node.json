@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "target": "ES2022",
-    "lib": ["ES2023"],
+    "lib": ["ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
     "composite": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "node",
+    // "allowImportingTsExtensions": true,
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "moduleDetection": "force",
