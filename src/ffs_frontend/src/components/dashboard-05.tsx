@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 // import Link from "next/link";
 import { Link } from "react-router-dom";
 
@@ -222,7 +222,7 @@ export default function Dashboard() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" className="overflow-hidden rounded-full">
-                <Image
+                <img
                   src="/placeholder-user.jpg"
                   width={36}
                   height={36}
