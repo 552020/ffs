@@ -21,7 +21,17 @@ npx tailwindcss init
 
 package.json is updated: tailwindcss, postcss, autoprefixer. We have a new `tailwind.config.js`
 
-- We tweak tsconfig.json
+## Tweak tsconfig.json
+
+Here the problem starts cause the scaffold we get from dfx is different from the one we get from `npm install vite@latest` which is the one supposed by schadcn. The scaffold one has two files `tsconfig.app.json` and `tsconfig.node.json` which are not present in the dfx scaffold. The `vite.config.js` in the scaffold of vite-latest is a ts file. So we converted the file to ts, we had to add node types for the `url` module in our dfx config, and we had to tweak the tsconfig.app.json and the node one allowing composite and disabling noEmit.
+
+### Why We Need to Change These TypeScript Values:
+
+- **`composite: true`**: When using **project references**, TypeScript requires the referenced `tsconfig` files to have `"composite": true`. This enables **incremental builds**, ensuring that TypeScript can properly track dependencies between projects and compile them in the correct order. Without this setting, the TypeScript compiler will raise errors when trying to reference projects.
+
+- **`noEmit: false`**: By default, TypeScript project references expect referenced projects to be able to emit files (such as `.js` or `.d.ts`). If `"noEmit": true` is set, TypeScript will not emit these files, which can break the reference chain. Setting `"noEmit": false` or removing it allows the necessary output files to be generated, even if you're not directly using them in your project (e.g., for tooling or type-checking purposes).
+
+This provides the necessary context for why these settings are required in your project when using TypeScript project references.kk
 
 ### Summary for Documentation
 
