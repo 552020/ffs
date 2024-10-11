@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "ffs_backend": {
+      "candid": "src/ffs_backend/ffs_backend.did",
+      "package": "ffs_backend",
+      "type": "rust"
+    },
+    "ffs_frontend": {
+      "dependencies": [
+        "ffs_backend"
+      ],
+      "source": [
+        "src/ffs_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "ffs_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

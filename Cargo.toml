@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/ffs_backend"
+]
+resolver = "2"
