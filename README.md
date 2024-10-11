@@ -1,5 +1,65 @@
 # `ffs`
 
+- `dfx new ffs`
+- `cd ffs`
+
+- `dfx build` will not work at this point: `Error: Cannot find canister id. Please issue 'dfx canister create ffs_backend'.`
+- `dfx deploy` will work: `dfx deploy` is just a shorthand for `dfx canister crate`, `dfx build`, `dfx canister install`.
+
+At this point we have the follwing 'tree', the node_modules and target dirs are not listed.
+
+.
+├── Cargo.lock
+├── Cargo.toml
+├── README.md
+├── dfx.json
+├── package-lock.json
+├── package.json
+├── src
+│ ├── declarations
+│ │ ├── ffs_backend
+│ │ │ ├── ffs_backend.did
+│ │ │ ├── ffs_backend.did.d.ts
+│ │ │ ├── ffs_backend.did.js
+│ │ │ ├── index.d.ts
+│ │ │ └── index.js
+│ │ └── ffs_frontend
+│ │ ├── ffs_frontend.did
+│ │ ├── ffs_frontend.did.d.ts
+│ │ ├── ffs_frontend.did.js
+│ │ ├── index.d.ts
+│ │ └── index.js
+│ ├── ffs_backend
+│ │ ├── Cargo.toml
+│ │ ├── ffs_backend.did
+│ │ └── src
+│ │ └── lib.rs
+│ └── ffs_frontend
+│ ├── dist
+│ │ ├── assets
+│ │ │ ├── index-2a8a0c6e.css
+│ │ │ └── index-e536289f.js
+│ │ ├── favicon.ico
+│ │ ├── index.html
+│ │ └── logo2.svg
+│ ├── index.html
+│ ├── package.json
+│ ├── public
+│ │ ├── favicon.ico
+│ │ └── logo2.svg
+│ ├── src
+│ │ ├── App.jsx
+│ │ ├── index.scss
+│ │ ├── main.jsx
+│ │ └── vite-env.d.ts
+│ ├── tsconfig.json
+│ └── vite.config.js
+└── tsconfig.json
+
+12 directories, 35 files
+
+## DEFAULT DOCS FROM HERE
+
 Welcome to your new `ffs` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
